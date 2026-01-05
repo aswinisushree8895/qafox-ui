@@ -14,6 +14,7 @@ public class HomePageTests extends BaseTest{
 
 	@Test
 	public void TC001() {
+		System.out.println("welcome to test");
 		homePage.getCatagoryNavigationBar().clickOnTabletsLink();
 	}
 }
