@@ -1,0 +1,25 @@
+pipeline{
+	agent any
+	
+	tools{
+		
+	}
+	
+	stages{
+		stage('Checkout'){
+			steps{
+				git branch: 'main', credentialsId: '2e136636-c83b-4147-864f-ea536effabd9', url: 'https://github.com/aswinisushree8895/qafox-ui.git'
+			}
+		}
+		
+		stage('Build and Test'){
+			bat 'mvn clean test'
+		}
+	}
+	
+	post{
+		always{
+			junit 'target/surefire-reports/*.xml'
+		}
+	}
+}
